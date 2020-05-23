@@ -1,0 +1,182 @@
+/**/
+.margin-5 {
+    margin: 5px;
+}
+
+.margin-10 {
+    margin: 10px;
+}
+
+.margin-left-10 {
+    margin-left: 10px
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+.margin-top-60 {
+    margin-top: 60px;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.space-20 {
+    margin-left: 20px;
+}
+
+.height-38 {
+    height: 38px;
+}
+
+select {
+    appearance: none;
+    outline: 0;
+    background: rgba(230, 236, 255, 0.4);
+    background-image: none;
+    cursor: pointer;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 3px;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    border-radius: .25em;
+}
+
+.inputText {
+    background: rgba(230, 236, 255, 0.4);
+    background-image: none;
+    cursor: pointer;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 3px;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+.iconimage {
+    width: 32px;
+    height: 32px;
+}
+
+.fieldLabel {
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+}
+
+#statsTable {
+
+    border: 1px solid rgb(225, 225, 225);
+    border-collapse: collapse;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+}
+
+#statsTable th {
+    border: 1px solid rgb(225, 225, 225);
+    padding: 5px;
+    background-color: rgba(230, 236, 255, 0.8) !important;
+}
+
+#statsTable td {
+    border: 1px solid rgb(225, 225, 225);
+    padding: 5px;
+}
+
+.lightBlueRow {
+    background-color: rgba(230, 236, 255, 0.4);
+}
+
+.infoText {
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    color: darkslategrey;
+}
+
+.errorText {
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    color: red;
+}
+
+.loginBox {
+
+    width: 300px;
+    margin: 0 auto;
+}
+
+.inputHeaderContainer {
+
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+#artefactsDiv {
+    width: 100%;
+    height: 85%;
+}
+
+.artefactitem {
+
+    float: left;
+    width: 14rem !important;
+    margin: 10px;
+    border-radius: 0 !important;
+}
+
+.artefactitemicon {
+
+    padding: 1.25rem;
+    color: #fff;
+}
+
+.artefactitemtext {
+
+    padding: 1.25rem;
+    width: 100%;
+    color: #fff;
+}
+
+/*
+.artefact {
+
+    font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size : 14px;
+    color: #495057;
+    opacity: .6;
+    margin : 5px;
+    padding : 10px;
+}
+
+.artefact:hover {
+
+    color : rgb(51, 154, 240);
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#artefactsDiv {
+    background-color: rgba(241,243,245,0.6);
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#artefactsDiv.active {
+    margin-left: -250px;
+}
+*/

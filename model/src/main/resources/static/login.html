@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/jqueryloading/loading.css">
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/jqueryloading/jquery.loading.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body onload="javascript:logininit()">
+
+    <div class="text-center loginBox">
+
+        <div style="height:70px;"></div>
+
+        <div class="form-signin">
+
+            <img class="mb-4" src="img/logo.jpg" alt="" width="130" height="115">
+
+            <label for="username" class="sr-only">Login ID</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Login ID" required="" autofocus="">
+
+            <br />
+
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+
+            <br />
+
+            <div id="errorTextDiv"></div>
+
+            <button id="loginbutton" class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+
+            <p class="mt-5 mb-3 text-muted">© 2019</p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
