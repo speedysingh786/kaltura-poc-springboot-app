@@ -1,6 +1,7 @@
-
+-- CREATE SCHEMA `kalturareplacement` 
+use kalturareplacement;
 create table APPUSER (
-    ID                  int not null generated always as identity,
+    ID                  int not null AUTO_INCREMENT,
     FIRST_NAME          varchar(100),
     LAST_NAME           varchar(100),
     MIDDLE_NAME         varchar(100),
@@ -13,7 +14,7 @@ create table APPUSER (
 );
 
 create table ROLE (
-    ID          int not null generated always as identity,
+    ID          int not null AUTO_INCREMENT,
     NAME        varchar(100),
     DESCR        varchar(1000),
 
@@ -22,7 +23,7 @@ create table ROLE (
 );
 
 create table PERMISSION (
-    ID          int not null generated always as identity,
+    ID          int not null AUTO_INCREMENT,
     NAME        varchar(100),
     DESCR        varchar(1000),
 
@@ -49,7 +50,7 @@ create table APPUSER_ROLE_MAP (
 );
 
 create table ARTEFACT (
-    ID                  int,
+    ID                  int  not null AUTO_INCREMENT,
     NAME                varchar(400),
     URLKEY              varchar(4000),
     TYPE                varchar(10),
@@ -67,5 +68,3 @@ create table ARTEFACT_STATUS (
     primary key(ARTEFACT_ID),
     constraint FK_ARTEFACT_STATUS_ARTEFACT_ID foreign key (ARTEFACT_ID) references ARTEFACT (ID)
 );
-
-create sequence SEQ_ARTEFACT_ID start with 1;
