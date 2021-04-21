@@ -145,7 +145,7 @@ public class DataAccess {
 
     public int getNextArtefactSequenceID() {
 
-        String sql = "VALUES (NEXT VALUE FOR SEQ_ARTEFACT_ID)";
+        String sql = "select IFNULL(max(id),0) from artefact";
 
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }

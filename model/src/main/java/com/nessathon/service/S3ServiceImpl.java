@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.regex.Pattern;
@@ -27,8 +28,8 @@ import java.util.regex.Pattern;
 public class S3ServiceImpl {
 
     AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
-    String S3_BUCKET = "ness-hackothon-bucket";
-    String rootKey = "evidence/";
+    String S3_BUCKET = "esp-smk-fe-external";
+    String rootKey = "test/";
 
     @Autowired
     ArtefactService artefactService;
@@ -48,6 +49,7 @@ public class S3ServiceImpl {
 
         byte[] bytes = null;
         String finalKey = null;
+        ArrayList<String> docExtensions = new ArrayList<>(Arrays.asList("pdf","doc","docx","odt","xls","xlsx","ppt","pptx","odt","ods","odp"));
         for (MultipartFile file : files) {
 
             if (file.isEmpty()) {
@@ -56,10 +58,10 @@ public class S3ServiceImpl {
 
             bytes = file.getBytes();
         }
-        if (filename.split(Pattern.quote("."))[1].equalsIgnoreCase("pdf")) {
-            finalKey = rootKey + "docs/" + filename;
+        if (docExtensions.contains(filename.split(Pattern.quote("."))[1])) {
+            finalKey = rootKey + "docs/inputs/" + filename;
         } else {
-            finalKey = rootKey + "media/" + filename;
+            finalKey = rootKey + "media/inputs/" + filename;
         }
 
         InputStream is = new ByteArrayInputStream(bytes);
@@ -72,14 +74,19 @@ public class S3ServiceImpl {
 
         String filestr = filename.split(Pattern.quote("."))[0];
         String convertedfile = null;
-        if (filename.split(Pattern.quote("."))[1].equalsIgnoreCase("pdf")) {
-            convertedfile = rootKey + "docs/transcoded/" + filestr;
+        List<String> finalList = new ArrayList<>();
+        if (docExtensions.contains(filename.split(Pattern.quote("."))[1])) {
+            convertedfile = rootKey + "docs/outputs/windows_" + filestr;
+            finalList = getS3ObjectList(convertedfile, artefactID);
+            String convertedfileUbuntu = rootKey + "docs/outputs/ubuntu_" + filestr;
+            finalList.addAll(getS3ObjectList(convertedfileUbuntu, artefactID));
         } else {
-            convertedfile = rootKey + "media/transcoded/" + filestr;
+            convertedfile = rootKey + "media/outputs/transcoded_" + filestr;
+            finalList = getS3ObjectList(convertedfile, artefactID);
         }
 
         System.out.println("convertedfile:" + convertedfile);
-        List<String> finalList = getS3ObjectList(convertedfile, artefactID);
+        
         finalList.add(0, finalKey);
 
         artefactService.updateArtefactURL(artefactID, finalKey);//parent media

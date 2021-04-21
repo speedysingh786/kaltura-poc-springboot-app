@@ -38,7 +38,7 @@ public class ArtefactService {
         MediaType mediaType = MediaType.getType(extension);
 
         Artefact artefact = new Artefact(name, url);
-        int artefactID = getNextArtefactSequenceID();
+        int artefactID = getNextArtefactSequenceID() + 1;
         artefact.setId(artefactID);
         artefact.setMediaType(mediaType);
         artefact.setSizeInBytes(sizeInBytes);
